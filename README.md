@@ -7,17 +7,11 @@ Merkle tree flow through bridge deposit
 
 ## Step 1: Initiate TX**
 
-```
-function bridgeAsset(
-        uint32 destinationNetwork,
-        address destinationAddress,
-        uint256 amount,
-        address token,
-        bool forceUpdateGlobalExitRoot,
-        bytes calldata permitData
-    )
-```
+ <img src="icon1.png" alt="Custom Icon" style="width:20px; height:20px; vertical-align:middle;"> Initiate TX
 
+and
+
+## <img src="icon1.png" alt="Custom Icon" style="width:20px; height:20px; vertical-align:middle;"> Initiate TX
 again
 
 ```solidity
