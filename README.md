@@ -30,20 +30,15 @@ For tokens native to the L1, the tokens bridged across to the L2 will be locked 
 
 ## <img src="./assets/icon3.png" align="top" width="35" height="35"> Step 3: Update Global Exit Root
 
-The bridge contract will then update the it's MER (DEFINE) and then send this to the global exit root manager contract via [`_updateGlobalExitRoot()`](https://github.com/0xPolygonHermez/zkevm-contracts/blob/4912f4b673015209b3dbe1dd0702a9ffec5c9261/contracts/v2/PolygonZkEVMBridgeV2.sol#L893)
+The bridge contract will then update the it's mainnet exit root (MER) which tracks all bridging to any connected L2s. This is the equivilent to the local exit root (LER) merkle tree roots maintained by each of the L2s.  The MER is then sent to the global exit root manager contract via [`_updateGlobalExitRoot()`](https://github.com/0xPolygonHermez/zkevm-contracts/blob/4912f4b673015209b3dbe1dd0702a9ffec5c9261/contracts/v2/PolygonZkEVMBridgeV2.sol#L893).
 
 
-or this [_updateGlobalExitRoot()](https://github.com/0xPolygonHermez/zkevm-contracts/blob/4912f4b673015209b3dbe1dd0702a9ffec5c9261/contracts/v2/PolygonZkEVMBridgeV2.sol#L893)
 ```solidity
-/**
-     * @notice Function to update the globalExitRoot
-     */
     function _updateGlobalExitRoot() internal {
         lastUpdatedDepositCount = uint32(depositCount);
         globalExitRootManager.updateExitRoot(getRoot());
     }
 ```
-
 
 
 ## <img src="./assets/icon4.png" align="top" width="35" height="35"> Step 4: ddddd
