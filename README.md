@@ -15,14 +15,14 @@ Merkle tree flow through bridge deposit
 </span>
 ---
 <span style="display: flex; align-items: center;">
-  <img src="./assets/icon1.png" alt="Custom Icon333" style="width:40px; height:40px; margin-right: 10px;"> Initiate TX
+  <img src="./assets/icon1.png" alt="Custom Icon333" style="width:30px; height:30px; margin-right: 10px;"> Initiate TX
 </span>
 
 ---
 again234
 
 <span style="display: inline-flex; align-items: center;">
-  <img src="./assets/icon1.png" alt="Custom Icon222" style="width:40px; height:40px; margin-right: 10px;"> Initiate TX
+  <img src="./assets/icon1.png" alt="Custom Icon222" style="width:30px; height:30px; margin-right: 10px;"> Initiate TX
 </span>
 ---
 
