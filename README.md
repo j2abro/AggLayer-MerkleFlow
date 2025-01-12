@@ -41,3 +41,46 @@ function bridgeAsset(
         bool forceUpdateGlobalExitRoot,
         bytes calldata permitData
     )
+```
+
+
+## Step 1: Initiate TX
+
+<span style="display: inline-block; vertical-align: middle;">
+  <img src="./assets/icon1.png" alt="Custom Icon" style="width:40px; height:40px; margin-right: 10px; vertical-align: middle;">
+</span>
+<span style="display: inline-block; vertical-align: middle;">
+  Initiate TX
+</span>
+
+---
+## <span style="display: inline-block; vertical-align: middle;">
+  <img src="./assets/icon1.png" alt="Custom Icon111" style="width:40px; height:40px; vertical-align: middle;">
+</span>
+<span style="display: inline-block; vertical-align: middle;">
+  Initiate TX
+</span>
+---
+## <span style="display: inline-block; vertical-align: middle;">
+  <img src="./assets/icon1.png" alt="Custom Icon222" style="width:40px; height:40px; margin-right: 10px; vertical-align: middle;">
+</span>
+<span style="display: inline-block; vertical-align: middle;">
+  Initiate TX
+</span>
+---
+<span style="display: inline-block; vertical-align: middle;">
+  <img src="./assets/icon1.png" alt="Custom Icon333" style="width:30px; height:30px; margin-right: 10px; vertical-align: middle;">
+</span>
+<span style="display: inline-block; vertical-align: middle;">
+  Initiate TX
+</span>
+
+---
+again234
+
+<span style="display: inline-block; vertical-align: middle;">
+  <img src="./assets/icon1.png" alt="Custom Icon222" style="width:30px; height:30px; margin-right: 10px; vertical-align: middle;">
+</span>
+<span style="display: inline-block; vertical-align: middle;">
+  Initiate TX
+</span>
