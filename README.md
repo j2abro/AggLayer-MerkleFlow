@@ -26,6 +26,8 @@ function bridgeAsset(
 Setting [`forceUpdateGlobalExitRoot`](https://github.com/0xPolygonHermez/zkevm-contracts/blob/main/contracts/v2/PolygonZkEVMBridgeV2.sol#L312) to `true' will force the state (global exit root) to sync across all networks.
 
 ## <p><img src="./assets/icon1.png" align="top" width="35" height="35"> Step 2: ddddd</p>
+## <p><img src="./assets/icon1b.png" align="top" width="35" height="35"> Step 2: ddddd</p>
+## <p><img src="./assets/icon2.png" align="top" width="35" height="35"> Step 2: ddddd</p>
 
 
 
