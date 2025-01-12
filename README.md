@@ -5,31 +5,9 @@ Merkle tree flow through bridge deposit
 
 # Stepping Through a Bridge Deposit Transaction
 
-## Step 1: Initiate TX
+## 
 
-<span style="display: flex; align-items: center;">
-  <img src="./assets/icon1.png" alt="Custom Icon" style="width:40px; height:40px; margin-right: 10px;"> Initiate TX
-</span>
-
----
----
-## <img src="./assets/icon1.png" alt="Custom Icon111" style="width:40px; height:40px; vertical-align: middle;"> Initiate TX
----
-## <span style="display: inline-flex; align-items: center;">
-  <img src="./assets/icon1.png" alt="Custom Icon222" style="width:40px; height:40px; vertical-align: middle; margin-right: 10px;"> Initiate TX
-</span>
----
-<span style="display: inline-flex; align-items: center;">
-  <img src="./assets/icon1.png" alt="Custom Icon333" style="width:30px; height:30px; vertical-align: middle; margin-right: 10px;"> Initiate TX
-</span>
-
----
-again234
-
-<span style="display: inline-flex; align-items: center;">
-  <img src="./assets/icon1.png" alt="Custom Icon222" style="width:30px; height:30px; vertical-align: middle; margin-right: 10px;"> Initiate TX
-</span>
----
+## <p><img src="./assets/icon1.png" align="top" width="34" height="34"> Step 1: Initiate TX</p>
 ---
 
 ```solidity
@@ -43,17 +21,7 @@ function bridgeAsset(
     )
 ```
 
+## <p><img src="./assets/icon1.png" align="top" width="36" height="36"> Step 2: ddddd</p>
 
-<!-- ## <p><img src="./assets/icon1.png" align="top" width="24" height="24"> Your text here</p> -->
 
----
 
-## <p><img src="./assets/icon1.png" align="top" width="34" height="34"> Your text here</p>
-
----
-
-<!-- ## <p><img src="./assets/icon1.png" align="middle" width="24" height="24"> Your text here</p> -->
-
----
-
-## <p><img src="./assets/icon1.png" align="bottom" width="60" height="24"> Your text here</p>
