@@ -5,26 +5,11 @@ Merkle tree flow through bridge deposit
 
 # Stepping Through a Bridge Deposit Transaction
 
-## Step 1: Initiate TX**
+## Step 1: Initiate TX
 
-
-## <img src="./assets/icon1.png" alt="Custom Icon111" style="width:40px; height:40px; vertical-align:middle;"> Initiate TX
----
-## <span style="display: flex; align-items: center;">
-  <img src="./assets/icon1.png" alt="Custom Icon222" style="width:40px; height:40px; margin-right: 10px;"> Initiate TX
-</span>
----
 <span style="display: flex; align-items: center;">
-  <img src="./assets/icon1.png" alt="Custom Icon333" style="width:30px; height:30px; margin-right: 10px;"> Initiate TX
+  <img src="./assets/icon1.png" alt="Custom Icon" style="width:40px; height:40px; margin-right: 10px;"> Initiate TX
 </span>
-
----
-again234
-
-<span style="display: inline-flex; align-items: center;">
-  <img src="./assets/icon1.png" alt="Custom Icon222" style="width:30px; height:30px; margin-right: 10px;"> Initiate TX
-</span>
----
 
 ```solidity
 function bridgeAsset(
@@ -35,4 +20,3 @@ function bridgeAsset(
         bool forceUpdateGlobalExitRoot,
         bytes calldata permitData
     )
-```
