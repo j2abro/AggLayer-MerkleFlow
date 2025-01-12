@@ -7,7 +7,7 @@ Merkle tree flow through bridge deposit
 
 ## <p><img src="./assets/icon1.png" align="top" width="34" height="34"> Step 1: Initiate TX</p>
 
-User/dapp submits a deposit transaction on Layer 1 Ethereum (L1) via a zkEVM Layer 2 (L2) [(RPC endpoint)](https://zkevm-rpc.com/). Here is an [example transaction on Etherscan](https://etherscan.io/tx/0xf790f5a6ae551dc8e5b04d92941ae79025ba9d485fc1fb7fe3c00b9393332da8).
+User/dapp submits a deposit transaction on Layer 1 Ethereum (L1) via a zkEVM Layer 2 (L2) [RPC endpoint](https://zkevm-rpc.com/). Here is an [example transaction on Etherscan](https://etherscan.io/tx/0xf790f5a6ae551dc8e5b04d92941ae79025ba9d485fc1fb7fe3c00b9393332da8).
 
 This will call the `bridgeAsset()` function on [PolygonZkEVMBridgeV2.sol](https://github.com/0xPolygonHermez/zkevm-contracts/blob/4912f4b673015209b3dbe1dd0702a9ffec5c9261/contracts/v2/PolygonZkEVMBridgeV2.sol#L204).
 
@@ -26,7 +26,7 @@ function bridgeAsset(
 Setting [`forceUpdateGlobalExitRoot`](https://github.com/0xPolygonHermez/zkevm-contracts/blob/main/contracts/v2/PolygonZkEVMBridgeV2.sol#L312) to `true' will force the state (global exit root) to sync across all networks.
 
 ## <p><img src="./assets/icon2.png" align="top" width="35" height="35"> Step 2: Lock Tokens</p>
-For tokens native to the L1, the tokens bridged across to the L
+For tokens native to the L1, the tokens bridged across to the L2 will be locked on the L1 bridge contract ([PolygonZkEVMBridgeV2.sol](https://github.com/0xPolygonHermez/zkevm-contracts/blob/4912f4b673015209b3dbe1dd0702a9ffec5c9261/contracts/v2/PolygonZkEVMBridgeV2.sol#L204)). See Etherscan for [locked bridge token holdings](https://etherscan.io/tokenholdings?a=0x2a3DD3EB832aF982ec71669E178424b10Dca2EDe).
 
 ## <p><img src="./assets/icon3.png" align="top" width="35" height="35"> Step 3: ddddd</p>
 ## <p><img src="./assets/icon4.png" align="top" width="35" height="35"> Step 4: ddddd</p>
