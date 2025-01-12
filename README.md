@@ -44,16 +44,16 @@ function bridgeAsset(
 ```
 
 
-<p><img src="./assets/icon1.png" align="top" width="24" height="24"> Your text here</p>
+## <p><img src="./assets/icon1.png" align="top" width="24" height="24"> Your text here</p>
 
 ---
 
-<p><img src="./assets/icon1.png" align="top" width="30" height="30"> Your text here</p>
+## <p><img src="./assets/icon1.png" align="top" width="30" height="30"> Your text here</p>
 
 ---
 
-<p><img src="./assets/icon1.png" align="middle" width="24" height="24"> Your text here</p>
+## <p><img src="./assets/icon1.png" align="middle" width="24" height="24"> Your text here</p>
 
 ---
 
-<p><img src="./assets/icon1.png" align="bottom" width="24" height="24"> Your text here</p>
+## <p><img src="./assets/icon1.png" align="bottom" width="24" height="24"> Your text here</p>
