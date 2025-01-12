@@ -56,4 +56,4 @@ function bridgeAsset(
 
 ---
 
-## <p><img src="./assets/icon1.png" align="bottom" width="30" height="30"> Your text here</p>
+## <p><img src="./assets/icon1.png" align="bottom" width="40" height="40"> Your text here</p>
