@@ -28,7 +28,24 @@ Setting [`forceUpdateGlobalExitRoot`](https://github.com/0xPolygonHermez/zkevm-c
 ## <img src="./assets/icon2.png" align="top" width="35" height="35"> Step 2: Lock Tokens
 For tokens native to the L1, the tokens bridged across to the L2 will be locked on the L1 bridge contract ([PolygonZkEVMBridgeV2.sol](https://github.com/0xPolygonHermez/zkevm-contracts/blob/4912f4b673015209b3dbe1dd0702a9ffec5c9261/contracts/v2/PolygonZkEVMBridgeV2.sol#L204)). See Etherscan for [locked bridge token holdings](https://etherscan.io/tokenholdings?a=0x2a3DD3EB832aF982ec71669E178424b10Dca2EDe).
 
-## <img src="./assets/icon3.png" align="top" width="35" height="35"> Step 3: ddddd
+## <img src="./assets/icon3.png" align="top" width="35" height="35"> Step 3: Update Global Exit Root
+
+The bridge contract will then update the it's MER (DEFINE) and then send this to the global exit root manager contract via [`_updateGlobalExitRoot()`](https://github.com/0xPolygonHermez/zkevm-contracts/blob/4912f4b673015209b3dbe1dd0702a9ffec5c9261/contracts/v2/PolygonZkEVMBridgeV2.sol#L893)
+
+
+or this [_updateGlobalExitRoot()](https://github.com/0xPolygonHermez/zkevm-contracts/blob/4912f4b673015209b3dbe1dd0702a9ffec5c9261/contracts/v2/PolygonZkEVMBridgeV2.sol#L893)
+```solidity
+/**
+     * @notice Function to update the globalExitRoot
+     */
+    function _updateGlobalExitRoot() internal {
+        lastUpdatedDepositCount = uint32(depositCount);
+        globalExitRootManager.updateExitRoot(getRoot());
+    }
+```
+
+
+
 ## <img src="./assets/icon4.png" align="top" width="35" height="35"> Step 4: ddddd
 ## <img src="./assets/icon5.png" align="top" width="35" height="35"> Step 5: ddddd
 ## <img src="./assets/icon6.png" align="top" width="35" height="35"> Step 6: ddddd
