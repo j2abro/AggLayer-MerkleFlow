@@ -1,9 +1,10 @@
 # MerkleFlow
-Merkle tree flow through bridge deposit
+AggLayer Sparse Merkle Tree flow through bridge deposit.
 
 ![Local Image](https://github.com/j2abro/MerkleFlow/raw/main/assets/MerkleFlow.svg "Merke Tree Flow")
 
-# Stepping Through a Bridge Deposit Transaction
+# Tracking State Through a Bridge Deposit Transaction
+The Polygon Unified Bridge tracks deposit and withdraws across connected L2 and Ethereum with a series of Sparse Merkle Trees (SMTs) that syncronize the state of cross-chain transactions. I described the hierarchical structure of these SMTs in a previous post [*Visualizing Polygon AggLayer Data Structures*](https://medium.com/@j2abro/visualizing-polygon-agglayer-data-structures-9d55c060c9b6). This post describes how this state is communicated across chains by end0-to-end tracking of a transaction.
 
 ## <img src="./assets/icon1.png" align="top" width="34" height="34"> User Initiates Transaction
 
