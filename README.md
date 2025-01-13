@@ -30,7 +30,7 @@ For tokens native to the L1, the tokens bridged across to the L2 will be locked 
 
 ## <img src="./assets/icon3.png" align="top" width="35" height="35"> Step 3: Update Global Exit Root
 
-The bridge contract will then update the it's mainnet exit root (MER) which tracks all bridging to any connected L2s. This is the equivilent to the local exit root (LER) merkle tree roots maintained by each of the L2s.  The MER is then sent to the global exit root manager contract via [`_updateGlobalExitRoot()`](https://github.com/0xPolygonHermez/zkevm-contracts/blob/4912f4b673015209b3dbe1dd0702a9ffec5c9261/contracts/v2/PolygonZkEVMBridgeV2.sol#L893).
+The L1 bridge contract will then update the it's Mainnet Exit Root (MER) which tracks all bridging to any connected L2s. This is the equivilent to the Local Exit Root (LER) merkle tree root maintained by each of the L2s.  The MER is then sent to the global exit root manager contract via [`_updateGlobalExitRoot()`](https://github.com/0xPolygonHermez/zkevm-contracts/blob/4912f4b673015209b3dbe1dd0702a9ffec5c9261/contracts/v2/PolygonZkEVMBridgeV2.sol#L893).
 
 
 ```solidity
@@ -40,8 +40,10 @@ The bridge contract will then update the it's mainnet exit root (MER) which trac
     }
 ```
 
+## <img src="./assets/icon4.png" align="top" width="35" height="35"> Step 4: Update Global Exit Root
 
-## <img src="./assets/icon4.png" align="top" width="35" height="35"> Step 4: ddddd
+When the MER is updated in the [` PolygonZkEVMGlobalExitRootV2.sol`](https://etherscan.io/address/0x580bda1e7A0CFAe92Fa7F6c20A3794F169CE3CFb) as a results of the bridge contract `bridgeAsset()` function the Global Exit Root (GER) will be calcualted (a hash of the RER and MER) and and append it to the L1 Info tree (a sparse merkle tree).
+
 ## <img src="./assets/icon5.png" align="top" width="35" height="35"> Step 5: ddddd
 ## <img src="./assets/icon6.png" align="top" width="35" height="35"> Step 6: ddddd
 ## <img src="./assets/icon7.png" align="top" width="35" height="35"> Step 7: ddddd
