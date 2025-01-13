@@ -22,7 +22,7 @@ function bridgeAsset(
     )
 ```
 
-Setting [`forceUpdateGlobalExitRoot`](https://github.com/0xPolygonHermez/zkevm-contracts/blob/main/contracts/v2/PolygonZkEVMBridgeV2.sol#L312) to `true` will force the state (global exit root) to sync across all networks.
+Setting [`forceUpdateGlobalExitRoot`](https://github.com/0xPolygonHermez/zkevm-contracts/blob/main/contracts/v2/PolygonZkEVMBridgeV2.sol#L312) to `true` will force the state, Global Exit Root (*GER*) to sync across all networks.
 
 ## <img src="./assets/icon2.png" align="top" width="35" height="35"> Lock Tokens
 For tokens native to the L1, the tokens bridged across to the L2 will be locked on the L1 bridge contract ([PolygonZkEVMBridgeV2.sol](https://github.com/0xPolygonHermez/zkevm-contracts/blob/4912f4b673015209b3dbe1dd0702a9ffec5c9261/contracts/v2/PolygonZkEVMBridgeV2.sol#L204)). The total aggregate tokens locked on the contact can be [viewed on Etherscan](https://etherscan.io/tokenholdings?a=0x2a3DD3EB832aF982ec71669E178424b10Dca2EDe).
