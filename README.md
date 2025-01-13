@@ -42,7 +42,7 @@ The L1 bridge contract will then update the it's Mainnet Exit Root (MER) which t
 
 ## <img src="./assets/icon4.png" align="top" width="35" height="35"> Step 4: Update Global Exit Root
 
-When the MER is updated in the [` PolygonZkEVMGlobalExitRootV2.sol`](https://etherscan.io/address/0x580bda1e7A0CFAe92Fa7F6c20A3794F169CE3CFb) as a results of the bridge contract `bridgeAsset()` function the Global Exit Root (GER) will be calcualted (a hash of the RER and MER) and and append it to the L1 Info tree (a sparse merkle tree).
+When the MER is updated in the Global Exit Root Manager Contract [()` PolygonZkEVMGlobalExitRootV2.sol`)](https://etherscan.io/address/0x580bda1e7A0CFAe92Fa7F6c20A3794F169CE3CFb) as a results of the bridge contract `bridgeAsset()` function the Global Exit Root (GER) will be calcualted (a hash of the RER and MER) and and append it to the L1 Info tree (a sparse merkle tree).
 
 ## <img src="./assets/icon5.png" align="top" width="35" height="35"> Step 5: ddddd
 ## <img src="./assets/icon6.png" align="top" width="35" height="35"> Step 6: ddddd
