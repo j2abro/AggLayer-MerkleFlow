@@ -6,7 +6,7 @@ AggLayer Sparse Merkle Tree flow through bridge deposit.
 # Tracking State Through a Bridge Deposit Transaction
 The Polygon Unified Bridge tracks deposit and withdraws across connected L2 and Ethereum with a series of Sparse Merkle Trees (SMTs) that syncronize the state of cross-chain transactions. I described the hierarchical structure of these SMTs in a previous post [*Visualizing Polygon AggLayer Data Structures*](https://medium.com/@j2abro/visualizing-polygon-agglayer-data-structures-9d55c060c9b6). This post describes how this state is communicated across chains by end0-to-end tracking of a transaction.
 
-## <img src="./assets/icon1.png" align="top" width="34" height="34"> User Initiates Transaction
+## <img src="./assets/icon1.png" align="top" width="34" height="34"> User Initiates Transaction on L1
 
 User/dapp submits a deposit transaction on Layer 1 Ethereum (L1) via a zkEVM Layer 2 (L2) [RPC endpoint](https://zkevm-rpc.com/). Here is an [example transaction on Etherscan](https://etherscan.io/tx/0xf790f5a6ae551dc8e5b04d92941ae79025ba9d485fc1fb7fe3c00b9393332da8).
 
@@ -44,9 +44,10 @@ The L1 bridge contract will then update the it's Mainnet Exit Root (**MER**) whi
 
 When the **MER** is updated in the Global Exit Root Manager Contract [(`PolygonZkEVMGlobalExitRootV2.sol`)](https://etherscan.io/address/0x580bda1e7A0CFAe92Fa7F6c20A3794F169CE3CFb) as a results of the bridge contract `bridgeAsset()` function the Global Exit Root (**GER**) will be calcualted (a hash of the **RER** and **MER**) and and append it to the L1 Info Tree (a sparse merkle tree).
 
-## <img src="./assets/icon5.png" align="top" width="35" height="35"> ddddd
-## <img src="./assets/icon6.png" align="top" width="35" height="35"> ddddd
-## <img src="./assets/icon7.png" align="top" width="35" height="35"> ddddd
+## <img src="./assets/icon5.png" align="top" width="35" height="35"> L2 Sequencer Fetches GER
+The L2 sequencer fetches the L1 GER from the Global Exit Root Manager contract and posts it to the L2 Global Exit Root Manager contract [(`PolygonZkEVMGlobalExitRootL2.sol`)](https://github.com/0xPolygonHermez/zkevm-contracts/blob/main/contracts/PolygonZkEVMGlobalExitRootL2.sol) <--TODO find Sequencer RUST CODE and contract call (SPECIFY LINK AND CODE)
+## <img src="./assets/icon6.png" align="top" width="35" height="35"> User Claims Tokens on L2
+## <img src="./assets/icon7.png" align="top" width="35" height="35"> Verify Proof and Transfer
 
 
 
