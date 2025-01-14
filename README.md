@@ -8,7 +8,7 @@ The Polygon AggLayer cross-chain interopability protocol for token bridging (and
 
 This state synchronization process is a fundemental component of the AggLayer which uses a zero-knowledge (ZK) proof, called the Pessimistic Proof, to provide cryptographic verification of the cross-chain transactions. These SMTs are a a core input to the Pessimistic Proof.
 
-# Merkle Flow
+## Merkle Flow
 The following description maps to each step of a bridge deposit shown in the diagram above.
 
 ## <img src="./assets/icon1.png" align="top" width="34" height="34"> User Initiates Transaction on L1
