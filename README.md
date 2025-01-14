@@ -3,8 +3,10 @@ AggLayer Sparse Merkle Tree flow through bridge deposit.
 
 ![Local Image](https://github.com/j2abro/MerkleFlow/raw/main/assets/MerkleFlow.svg "Merke Tree Flow")
 
-# Tracking State Through a Bridge Deposit Transaction
-The Polygon Unified Bridge tracks deposit and withdraws across connected L2 and Ethereum with a series of Sparse Merkle Trees (SMTs) that syncronize the state of cross-chain transactions. I described the hierarchical structure of these SMTs in a previous post [*Visualizing Polygon AggLayer Data Structures*](https://medium.com/@j2abro/visualizing-polygon-agglayer-data-structures-9d55c060c9b6). This post describes how this state is communicated across chains by end0-to-end tracking of a transaction.
+# Polygon AggLayer: Tracking State Through a Deposit Transaction on the Unified Bridge
+The Polygon AggLayer cross-chain interopability protocol for token bridging (and message passing) relies on the Unified Bridge (formerly LxLy Bridge) to track deposits and withdraws across connected L2s and Ethereum. Tracking is implemented with a series of Sparse Merkle Trees (SMTs) that represent the state of each connected chain throughout the connected chains. I described the hierarchical structure of these SMTs in a previous post [*Visualizing Polygon AggLayer Data Structures*](https://medium.com/@j2abro/visualizing-polygon-agglayer-data-structures-9d55c060c9b6). This post describes how this state is transmitted across chains by follwing the flow of the SMTs from end-to-end in a bridge transaction.
+
+This state synchronization process is a fundemental component of the AggLayer which uses a zero-knowledge (ZK) proof, called the Pessimistic Proof, to provide cryptographic verification of the cross-chain transactions. These SMTs are a a core input to the Pessimistic Proof.
 
 ## <img src="./assets/icon1.png" align="top" width="34" height="34"> User Initiates Transaction on L1
 
