@@ -13,7 +13,7 @@ The following description maps to each step of a bridge deposit shown in the dia
 
 ## <img src="./assets/icon1.png" align="top" width="34" height="34"> User Initiates Transaction on L1
 
-User/dapp submits a deposit transaction on Layer 1 Ethereum (L1) via a zkEVM Layer 2 (L2) [RPC endpoint](https://zkevm-rpc.com/). Here is an [example transaction on Etherscan](https://etherscan.io/tx/0xf790f5a6ae551dc8e5b04d92941ae79025ba9d485fc1fb7fe3c00b9393332da8).
+User/dapp submits a deposit transaction on Layer 1 Ethereum (. Here is an [example transaction on Etherscan](https://etherscan.io/tx/0xf790f5a6ae551dc8e5b04d92941ae79025ba9d485fc1fb7fe3c00b9393332da8).
 
 This will call the `bridgeAsset()` function on [PolygonZkEVMBridgeV2.sol](https://github.com/0xPolygonHermez/zkevm-contracts/blob/4912f4b673015209b3dbe1dd0702a9ffec5c9261/contracts/v2/PolygonZkEVMBridgeV2.sol#L204):
 
@@ -54,6 +54,9 @@ The L2 sequencer fetches the L1 GER from the Global Exit Root Manager contract t
 
 ## <img src="./assets/icon6.png" align="top" width="35" height="35"> User Claims Tokens on L2
 dddd - right here dude
+
+User/dapp submits a claim transaction on Layer 2 (L2) via a zkEVM L2 [RPC endpoint](https://zkevm-rpc.com/).
+Here is [the matching claim() transaction on the zkEVM block explorer](https://zkevm.polygonscan.com/tx/0x8519b653373f0aec697d0a428e83d7c243c4f4bae2582e49fb0dfb9338270d0b).
 
 ```solidity
 function claimAsset(
