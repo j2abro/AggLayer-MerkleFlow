@@ -55,6 +55,22 @@ The L2 sequencer fetches the L1 GER from the Global Exit Root Manager contract t
 ## <img src="./assets/icon6.png" align="top" width="35" height="35"> User Claims Tokens on L2
 dddd - right here dude
 
+```solidity
+function claimAsset(
+        bytes32[_DEPOSIT_CONTRACT_TREE_DEPTH] calldata smtProofLocalExitRoot,
+        bytes32[_DEPOSIT_CONTRACT_TREE_DEPTH] calldata smtProofRollupExitRoot,
+        uint256 globalIndex,
+        bytes32 mainnetExitRoot,
+        bytes32 rollupExitRoot,
+        uint32 originNetwork,
+        address originTokenAddress,
+        uint32 destinationNetwork,
+        address destinationAddress,
+        uint256 amount,
+        bytes calldata metadata
+    )
+```
+
 ## <img src="./assets/icon7.png" align="top" width="35" height="35"> Verify Proof and Transfer
 
 
