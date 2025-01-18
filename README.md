@@ -50,8 +50,11 @@ The L1 bridge contract will then update the it's Mainnet Exit Root (**MER**) whi
 When the **MER** is updated in the Global Exit Root Manager Contract [(`PolygonZkEVMGlobalExitRootV2.sol`)](https://etherscan.io/address/0x580bda1e7A0CFAe92Fa7F6c20A3794F169CE3CFb) as a results of the bridge contract `bridgeAsset()` function the Global Exit Root (**GER**) will be calcualted (a hash of the **RER** and **MER**) and and append it to the L1 Info Tree (a sparse merkle tree).
 
 ## <img src="./assets/icon5.png" align="top" width="35" height="35"> L2 Sequencer Fetches GER
-The L2 sequencer fetches the L1 GER from the Global Exit Root Manager contract and posts it to the L2 Global Exit Root Manager contract [(`PolygonZkEVMGlobalExitRootL2.sol`)](https://github.com/0xPolygonHermez/zkevm-contracts/blob/main/contracts/PolygonZkEVMGlobalExitRootL2.sol) <--TODO find Sequencer RUST CODE and contract call (SPECIFY LINK AND CODE)
+The L2 sequencer fetches the L1 GER from the Global Exit Root Manager contract to update the L2 Global Exit Root Manager contract [(`PolygonZkEVMGlobalExitRootL2.sol`)](https://github.com/0xPolygonHermez/zkevm-contracts/blob/main/contracts/PolygonZkEVMGlobalExitRootL2.sol)
+
 ## <img src="./assets/icon6.png" align="top" width="35" height="35"> User Claims Tokens on L2
+dddd - right here dude
+
 ## <img src="./assets/icon7.png" align="top" width="35" height="35"> Verify Proof and Transfer
 
 
