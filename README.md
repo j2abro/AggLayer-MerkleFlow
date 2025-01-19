@@ -81,8 +81,20 @@ the `bytes32[_DEPOSIT_CONTRACT_TREE_DEPTH] calldata smtProofRollupExitRoot` proo
 
 ## <img src="./assets/icon7.png" align="top" width="35" height="35"> Verify Proof and Transfer
 
+The claim asset function then verifies the transaction with the `_verifyLeaf` function in [PolygonZkEVMBridgeV2.so](https://github.com/0xPolygonHermez/zkevm-contracts/blob/4912f4b673015209b3dbe1dd0702a9ffec5c9261/contracts/v2/PolygonZkEVMBridgeV2.sol#L754), which requires the parameters from above to verify the proofs.
 
+```solidity
+function _verifyLeaf(
+        bytes32[_DEPOSIT_CONTRACT_TREE_DEPTH] calldata smtProofLocalExitRoot,
+        bytes32[_DEPOSIT_CONTRACT_TREE_DEPTH] calldata smtProofRollupExitRoot,
+        uint256 globalIndex,
+        bytes32 mainnetExitRoot,
+        bytes32 rollupExitRoot,
+        bytes32 leafValue
+    )
+```
 
+If the verification succeeds, then the tokens from the transfer can be credited to the user's account and the transaction is completed.
 
 
 
