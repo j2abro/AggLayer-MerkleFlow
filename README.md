@@ -1,12 +1,18 @@
 # MerkleFlow
 AggLayer Sparse Merkle Tree flow through bridge deposit.
 
+- "Understanding the Unified Bridge: A Deep Dive into Polygon AggLayer's Cross-Chain Deposit Process"
+- "Tracking State in Polygon AggLayer: Analyzing the Unified Bridge Deposit Workflow"
+- "Polygon AggLayer's Unified Bridge: A Step-by-Step Guide to Cross-Chain Deposits"
+- "Exploring Sparse Merkle Trees in Polygon AggLayer's Unified Bridge Deposits"
+- "From Ethereum to Layer 2: Navigating Deposits via Polygon AggLayer's Unified Bridge"
+
 ![Local Image](https://github.com/j2abro/MerkleFlow/raw/main/assets/MerkleFlow.svg "Merke Tree Flow")
 
 # Polygon AggLayer: Tracking State Through a Deposit Transaction on the Unified Bridge
 The Polygon AggLayer cross-chain interopability protocol for token bridging (and message passing) relies on the Unified Bridge (formerly LxLy Bridge) to track deposits and withdrawals across connected L2s and Ethereum. Tracking is implemented with a set of Sparse Merkle Trees (SMTs) that represent the state of each connected chain throughout the connected chains. I described the hierarchical structure of these SMTs in a previous post [*Visualizing Polygon AggLayer Data Structures*](https://medium.com/@j2abro/visualizing-polygon-agglayer-data-structures-9d55c060c9b6). This post describes how this state is transmitted across chains by following the flow of the SMTs from end-to-end in a bridge transaction.
 
-This state synchronization process is a fundemental component of the AggLayer which uses a zero-knowledge (ZK) proof, called the Pessimistic Proof, to provide cryptographic verification of the cross-chain transactions. These SMTs are a a core input to the Pessimistic Proof.
+This state synchronization process is a fundamental component of the AggLayer which uses a zero-knowledge (ZK) proof, called the Pessimistic Proof, to provide cryptographic verification of the cross-chain transactions. These SMTs are a a core input to the Pessimistic Proof.
 
 ## Merkle Flow
 The following description maps to each step of a bridge deposit shown in the diagram above.
@@ -35,7 +41,7 @@ For tokens native to the L1, the tokens bridged across to the L2 will be locked 
 
 ## <img src="./assets/icon3.png" align="top" width="35" height="35"> Send MER to Global Exit Root Manager Contract
 
-The L1 bridge contract will then update the it's Mainnet Exit Root (**MER**) which tracks all bridging to any connected L2s. This is the equivilent to the Local Exit Root (**LER**) merkle tree root maintained by each of the L2s.  The **MER** is then sent to the global exit root manager contract via [`_updateGlobalExitRoot()`](https://github.com/0xPolygonHermez/zkevm-contracts/blob/4912f4b673015209b3dbe1dd0702a9ffec5c9261/contracts/v2/PolygonZkEVMBridgeV2.sol#L893).
+The L1 bridge contract will then update the Mainnet Exit Root (**MER**) which tracks all bridging to any connected L2s. This is the equivalent to the Local Exit Root (**LER**) merkle tree root maintained by each of the L2s.  The **MER** is then sent to the global exit root manager contract via [`_updateGlobalExitRoot()`](https://github.com/0xPolygonHermez/zkevm-contracts/blob/4912f4b673015209b3dbe1dd0702a9ffec5c9261/contracts/v2/PolygonZkEVMBridgeV2.sol#L893).
 
 
 ```solidity
@@ -47,13 +53,13 @@ The L1 bridge contract will then update the it's Mainnet Exit Root (**MER**) whi
 
 ## <img src="./assets/icon4.png" align="top" width="35" height="35"> Update Global Exit Root
 
-When the **MER** is updated in the Global Exit Root Manager Contract [(`PolygonZkEVMGlobalExitRootV2.sol`)](https://etherscan.io/address/0x580bda1e7A0CFAe92Fa7F6c20A3794F169CE3CFb) as a results of the bridge contract `bridgeAsset()` function the Global Exit Root (**GER**) will be calcualted (a hash of the **RER** and **MER**) and and append it to the L1 Info Tree (a sparse merkle tree).
+When the **MER** is updated in the Global Exit Root Manager Contract [(`PolygonZkEVMGlobalExitRootV2.sol`)](https://github.com/0xPolygonHermez/zkevm-contracts/blob/main/contracts/v2/PolygonZkEVMGlobalExitRootV2.sol) as a results of the bridge contract `bridgeAsset()` function the Global Exit Root (**GER**) will be calcualted (a hash of the **RER** and **MER**) and and append it to the L1 Info Tree (a sparse merkle tree).
 
 ## <img src="./assets/icon5.png" align="top" width="35" height="35"> L2 Sequencer Fetches GER
 The L2 sequencer fetches the L1 GER from the Global Exit Root Manager contract to update the L2 Global Exit Root Manager contract [(`PolygonZkEVMGlobalExitRootL2.sol`)](https://github.com/0xPolygonHermez/zkevm-contracts/blob/main/contracts/PolygonZkEVMGlobalExitRootL2.sol)
 
 ## <img src="./assets/icon6.png" align="top" width="35" height="35"> User Claims Tokens on L2
-User/dapp submits a claim transaction [PolygonZkEVMBridgeV2.so](https://github.com/0xPolygonHermez/zkevm-contracts/blob/4912f4b673015209b3dbe1dd0702a9ffec5c9261/contracts/v2/PolygonZkEVMBridgeV2.sol#L446) on Layer 2 (L2) via a zkEVM L2 [RPC endpoint](https://zkevm-rpc.com/).
+User/dapp submits a claim transaction [PolygonZkEVMBridgeV2.sol](https://github.com/0xPolygonHermez/zkevm-contracts/blob/4912f4b673015209b3dbe1dd0702a9ffec5c9261/contracts/v2/PolygonZkEVMBridgeV2.sol#L446) on Layer 2 (L2) via a zkEVM L2 [RPC endpoint](https://zkevm-rpc.com/).
 Here is [the matching claim() transaction on the zkEVM block explorer](https://zkevm.polygonscan.com/tx/0x8519b653373f0aec697d0a428e83d7c243c4f4bae2582e49fb0dfb9338270d0b).
 
 
@@ -81,7 +87,7 @@ the `bytes32[_DEPOSIT_CONTRACT_TREE_DEPTH] calldata smtProofRollupExitRoot` proo
 
 ## <img src="./assets/icon7.png" align="top" width="35" height="35"> Verify Proof and Transfer
 
-The claim asset function then verifies the transaction with the `_verifyLeaf` function in [PolygonZkEVMBridgeV2.so](https://github.com/0xPolygonHermez/zkevm-contracts/blob/4912f4b673015209b3dbe1dd0702a9ffec5c9261/contracts/v2/PolygonZkEVMBridgeV2.sol#L754), which requires the parameters from above to verify the proofs.
+The claim asset function then verifies the transaction with the `_verifyLeaf` function in [PolygonZkEVMBridgeV2.sol](https://github.com/0xPolygonHermez/zkevm-contracts/blob/4912f4b673015209b3dbe1dd0702a9ffec5c9261/contracts/v2/PolygonZkEVMBridgeV2.sol#L754), which requires the parameters from above to verify the proofs.
 
 ```solidity
 function _verifyLeaf(
@@ -94,7 +100,7 @@ function _verifyLeaf(
     )
 ```
 
-If the verification succeeds, then the tokens from the transfer can be credited to the user's account and the transaction is completed.
+If the verification succeeds the tokens from the transfer will be credited to the user's account and the transaction is completed.
 
 
 
