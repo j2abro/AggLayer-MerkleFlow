@@ -73,9 +73,9 @@ function claimAsset(
     )
 ```
 
-The function takes the MER (`bytes32 mainnetExitRoot`), representative of all the mainneet exits, and the RER (`bytes32 rollupExitRoot`), which encompases all the aggregate exits root hashes of the connected L2 rollups.
+The function takes the MER (`bytes32 mainnetExitRoot`), representative of all the mainneet exits, and the RER (`bytes32 rollupExitRoot`) which encompases all the aggregate exits root hashes of the connected L2 rollups.
 
-Then the `bytes32[_DEPOSIT_CONTRACT_TREE_DEPTH] calldata smtProofLocalExitRoot` is the merkle proof (the array of hashes that are required to prove the validity of the transaction) of the exit tree. This is the tree for which the transaction exited, and noting that this same contract is used on both the L1 and L2, it references the exit tree of the originating network, so in this case that is the exit tree of the L1 as this bridge transaction originated on the L1. This verifies that the transaction exit for this claim did indeed originate on the network in question.
+Then the `bytes32[_DEPOSIT_CONTRACT_TREE_DEPTH] calldata smtProofLocalExitRoot` is the merkle proof (the array of hashes that are required to prove the validity of the transaction) of the exit tree. This is the tree for which the transaction exited, and noting that this same contract is used on both the L1 and L2, it references the exit tree of the originating network; for this case that is the exit tree of the L1 as this bridge transaction originated on the L1. This verifies that the transaction exit for this claim did indeed originate on the network in question.
 
 the `bytes32[_DEPOSIT_CONTRACT_TREE_DEPTH] calldata smtProofRollupExitRoot` proof ensures that this transaction is also represented on the broader Rollup Exit Tree. 
 
