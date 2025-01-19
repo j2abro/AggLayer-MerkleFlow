@@ -55,7 +55,6 @@ The L2 sequencer fetches the L1 GER from the Global Exit Root Manager contract t
 User/dapp submits a claim transaction [PolygonZkEVMBridgeV2.sol](https://github.com/0xPolygonHermez/zkevm-contracts/blob/4912f4b673015209b3dbe1dd0702a9ffec5c9261/contracts/v2/PolygonZkEVMBridgeV2.sol#L446) on L2 via a zkEVM L2 [RPC endpoint](https://zkevm-rpc.com/).
 Here is [the matching claim() transaction on the zkEVM block explorer](https://zkevm.polygonscan.com/tx/0x8519b653373f0aec697d0a428e83d7c243c4f4bae2582e49fb0dfb9338270d0b).
 
-
 ```solidity
 function claimAsset(
         bytes32[_DEPOSIT_CONTRACT_TREE_DEPTH] calldata smtProofLocalExitRoot,
