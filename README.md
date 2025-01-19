@@ -93,7 +93,7 @@ function _verifyLeaf(
     )
 ```
 
-If the verification succeeds the tokens from the transfer will be credited to the user's account and the transaction is completed.
+If the verification succeeds the bridged tokens from the transfer will be credited to the user's account and the transaction is completed. If the verification fails the transaction is reverted.
 
 
 
