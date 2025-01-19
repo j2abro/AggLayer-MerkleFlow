@@ -1,5 +1,6 @@
-# MerkleFlow
-AggLayer Sparse Merkle Tree flow through bridge deposit.
+# Polygon AggLayer State Sync
+Exploring Sparse Merkle Trees for State Synchronization in Polygon's AggLayer
+
 
 - "Understanding the Unified Bridge: A Deep Dive into Polygon AggLayer's Cross-Chain Deposit Process"
 - "Tracking State in Polygon AggLayer: Analyzing the Unified Bridge Deposit Workflow"
