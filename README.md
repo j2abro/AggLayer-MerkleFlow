@@ -13,7 +13,7 @@ The following description maps to each step of a bridge deposit shown in the dia
 
 ## <img src="./assets/icon1.png" align="top" width="34" height="34"> User Initiates Transaction on L1
 
-User/dapp submits a deposit transaction on Layer 1 Ethereum (. Here is an [example transaction on Etherscan](https://etherscan.io/tx/0xf790f5a6ae551dc8e5b04d92941ae79025ba9d485fc1fb7fe3c00b9393332da8).
+User/dapp submits a deposit transaction on Layer 1 Ethereum. Here is an [example transaction on Etherscan](https://etherscan.io/tx/0xf790f5a6ae551dc8e5b04d92941ae79025ba9d485fc1fb7fe3c00b9393332da8).
 
 This will call the `bridgeAsset()` function on [PolygonZkEVMBridgeV2.sol](https://github.com/0xPolygonHermez/zkevm-contracts/blob/4912f4b673015209b3dbe1dd0702a9ffec5c9261/contracts/v2/PolygonZkEVMBridgeV2.sol#L204):
 
@@ -53,10 +53,9 @@ When the **MER** is updated in the Global Exit Root Manager Contract [(`PolygonZ
 The L2 sequencer fetches the L1 GER from the Global Exit Root Manager contract to update the L2 Global Exit Root Manager contract [(`PolygonZkEVMGlobalExitRootL2.sol`)](https://github.com/0xPolygonHermez/zkevm-contracts/blob/main/contracts/PolygonZkEVMGlobalExitRootL2.sol)
 
 ## <img src="./assets/icon6.png" align="top" width="35" height="35"> User Claims Tokens on L2
-dddd - right here dude
-
-User/dapp submits a claim transaction on Layer 2 (L2) via a zkEVM L2 [RPC endpoint](https://zkevm-rpc.com/).
+User/dapp submits a claim transaction [PolygonZkEVMBridgeV2.so](https://github.com/0xPolygonHermez/zkevm-contracts/blob/4912f4b673015209b3dbe1dd0702a9ffec5c9261/contracts/v2/PolygonZkEVMBridgeV2.sol#L446) on Layer 2 (L2) via a zkEVM L2 [RPC endpoint](https://zkevm-rpc.com/).
 Here is [the matching claim() transaction on the zkEVM block explorer](https://zkevm.polygonscan.com/tx/0x8519b653373f0aec697d0a428e83d7c243c4f4bae2582e49fb0dfb9338270d0b).
+
 
 ```solidity
 function claimAsset(
@@ -73,6 +72,12 @@ function claimAsset(
         bytes calldata metadata
     )
 ```
+
+The function takes the MER (`bytes32 mainnetExitRoot`), representative of all the mainneet exits, and the RER (`bytes32 rollupExitRoot`), which encompases all the aggregate exits root hashes of the connected L2 rollups.
+
+Then the `bytes32[_DEPOSIT_CONTRACT_TREE_DEPTH] calldata smtProofLocalExitRoot` is the merkle proof (the array of hashes that are required to prove the validity of the transaction) of the exit tree. This is the tree for which the transaction exited, and noting that this same contract is used on both the L1 and L2, it references the exit tree of the originating network, so in this case that is the exit tree of the L1 as this bridge transaction originated on the L1. This verifies that the transaction exit for this claim did indeed originate on the network in question.
+
+the `bytes32[_DEPOSIT_CONTRACT_TREE_DEPTH] calldata smtProofRollupExitRoot` proof ensures that this transaction is also represented on the broader Rollup Exit Tree. 
 
 ## <img src="./assets/icon7.png" align="top" width="35" height="35"> Verify Proof and Transfer
 
