@@ -1,7 +1,7 @@
 # Polygon AggLayer State Sync
 ## Exploring Sparse Merkle Trees and State Synchronization in Polygon's AggLayer
 
-The Polygon AggLayer cross-chain interopability protocol for token bridging (and message passing) relies on the Unified Bridge (formerly LxLy Bridge) to track deposits and withdrawals across connected L2s and Ethereum. Tracking is implemented with a set of Sparse Merkle Trees (SMTs) that represent the state of each connected chain throughout the connected chains. I described the hierarchical structure of these SMTs in a previous post [*Visualizing Polygon AggLayer Data Structures*](https://medium.com/@j2abro/visualizing-polygon-agglayer-data-structures-9d55c060c9b6). This post describes how this state is transmitted across chains by following the flow of the SMTs from end-to-end in a bridge transaction.
+The Polygon AggLayer cross-chain interopability protocol for token bridging (and message passing) relies on the Unified Bridge (formerly LxLy Bridge) to track deposits and withdrawals across connected Layer 2 rollups (L2s) and Ethereum (L1). Tracking is implemented with a set of Sparse Merkle Trees (SMTs) that represent the state of each connected chain throughout the connected chains. I described the hierarchical structure of these SMTs in a previous post [*Visualizing Polygon AggLayer Data Structures*](https://medium.com/@j2abro/visualizing-polygon-agglayer-data-structures-9d55c060c9b6). This post describes how this state is transmitted across chains by following the flow of the SMTs from end-to-end in a bridge transaction.
 
 This state synchronization process is a fundamental component of the AggLayer which uses a zero-knowledge (ZK) proof, called the Pessimistic Proof, to provide cryptographic verification of the cross-chain transactions. These SMTs are a a core input to the Pessimistic Proof.
 
@@ -12,7 +12,7 @@ The following description maps to each step of a bridge deposit shown in the dia
 
 ## <img src="./assets/icon1.png" align="top" width="34" height="34"> User Initiates Transaction on L1
 
-User/dapp submits a deposit transaction on Layer 1 Ethereum. Here is an [example transaction on Etherscan](https://etherscan.io/tx/0xf790f5a6ae551dc8e5b04d92941ae79025ba9d485fc1fb7fe3c00b9393332da8).
+User/dapp submits a deposit transaction on L1. Here is an [example transaction on Etherscan](https://etherscan.io/tx/0xf790f5a6ae551dc8e5b04d92941ae79025ba9d485fc1fb7fe3c00b9393332da8).
 
 This will call the `bridgeAsset()` function on [PolygonZkEVMBridgeV2.sol](https://github.com/0xPolygonHermez/zkevm-contracts/blob/4912f4b673015209b3dbe1dd0702a9ffec5c9261/contracts/v2/PolygonZkEVMBridgeV2.sol#L204):
 
@@ -52,7 +52,7 @@ When the **MER** is updated in the Global Exit Root Manager Contract [(`PolygonZ
 The L2 sequencer fetches the L1 GER from the Global Exit Root Manager contract to update the L2 Global Exit Root Manager contract [(`PolygonZkEVMGlobalExitRootL2.sol`)](https://github.com/0xPolygonHermez/zkevm-contracts/blob/main/contracts/PolygonZkEVMGlobalExitRootL2.sol)
 
 ## <img src="./assets/icon6.png" align="top" width="35" height="35"> User Claims Tokens on L2
-User/dapp submits a claim transaction [PolygonZkEVMBridgeV2.sol](https://github.com/0xPolygonHermez/zkevm-contracts/blob/4912f4b673015209b3dbe1dd0702a9ffec5c9261/contracts/v2/PolygonZkEVMBridgeV2.sol#L446) on Layer 2 (L2) via a zkEVM L2 [RPC endpoint](https://zkevm-rpc.com/).
+User/dapp submits a claim transaction [PolygonZkEVMBridgeV2.sol](https://github.com/0xPolygonHermez/zkevm-contracts/blob/4912f4b673015209b3dbe1dd0702a9ffec5c9261/contracts/v2/PolygonZkEVMBridgeV2.sol#L446) on L2 via a zkEVM L2 [RPC endpoint](https://zkevm-rpc.com/).
 Here is [the matching claim() transaction on the zkEVM block explorer](https://zkevm.polygonscan.com/tx/0x8519b653373f0aec697d0a428e83d7c243c4f4bae2582e49fb0dfb9338270d0b).
 
 
